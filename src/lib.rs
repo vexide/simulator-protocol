@@ -20,6 +20,7 @@ use rgb::RGB8;
 use serde::{Deserialize, Serialize};
 
 use alloc::{string::String, vec::Vec};
+use unix_path::PathBuf;
 use core::num::NonZeroU16;
 
 /// A message sent from the simulator to the frontend.
@@ -96,7 +97,7 @@ pub enum Command {
     },
     ControllerUpdate(Option<ControllerUpdate>, Option<ControllerUpdate>),
     USD {
-        root: Option<String>,
+        root: Option<PathBuf>,
     },
     VEXLinkOpened {
         port: SmartPort,

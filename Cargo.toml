@@ -8,7 +8,7 @@ repository = "https://github.com/vexide/simulator-protocol"
 license = "MIT"
 
 [dependencies]
-base64 = { version = "0.22.1" }
+base64 = { version = "0.22.1", default_features = false, features = ["alloc"] }
 mint = { version = "0.5.9", features = ["serde"] }
 rgb = { version = "0.8.45", features = ["serde"] }
 serde = { version = "1.0.201", default_features = false, features = [

@@ -10,5 +10,8 @@ license = "MIT"
 [dependencies]
 base64 = { version = "0.22.1" }
 mint = { version = "0.5.9", features = ["serde"] }
-rgb = { version = "0.8.37", features = ["serde"] }
-serde = { version = "1.0.201", features = ["derive"] }
+rgb = { version = "0.8.45", features = ["serde"] }
+serde = { version = "1.0.201", default_features = false, features = [
+    "derive",
+    "alloc",
+] }

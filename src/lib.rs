@@ -8,13 +8,20 @@
 //! The frontend sends [`Command`]s to the code executor to control the robot code environment, simulating changes in robot hardware (like controller input and LCD touch events) or competition phase.
 //!
 //! The full protocol is documented at <https://internals.vexide.dev/simulators/protocol>.
+
+#![no_std]
 #![deny(rust_2018_compatibility, rust_2018_idioms, unsafe_code)]
+
+extern crate alloc;
 
 use base64::{prelude::*, DecodeError};
 use mint::Point2;
 use rgb::RGB8;
 use serde::{Deserialize, Serialize};
-use std::{num::NonZeroU16, path::PathBuf};
+
+use alloc::{string::String, vec::Vec};
+use unix_path::PathBuf;
+use core::num::NonZeroU16;
 
 /// A message sent from the simulator to the frontend.
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
